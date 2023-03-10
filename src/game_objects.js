@@ -193,6 +193,10 @@ export class Player extends AnimatedGameObject {
     this.speed = 3
     this.handlers = new HandlerManager([
       new EventHandler(),
+      new GravityHandler({ 
+        jumpForce: -10,
+        maxGravity: 5,
+        gravityForce: 1 }),
       new CollisionHandler(),
       new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 3})
     ])
@@ -212,7 +216,7 @@ export class Player extends AnimatedGameObject {
     if (ev === "KeyA") { this.move("left") }
     if (ev === "KeyD") { this.move("right") }
     if (ev === "Space") { 
-      Game.loadMap("maps/map-02.txt")
+      this.jump()
     }
   }
 
