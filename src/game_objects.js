@@ -3,6 +3,7 @@ import { findAndRemoveFromList } from "./utils.js"
 import TileRegistry from "./tile_registry.js"
 import CollisionDetector from "./collision_detector.js"
 import Camera from "./camera.js"
+import Game from "./game.js"
 
 /**
  * Dies ist die Basisklasse für alle Spiel-Objekte.
@@ -206,6 +207,11 @@ export class Player extends AnimatedGameObject {
 
   update() {
     super.update()
+    console.log(this.y)
+    if (this.y > 192 + 2*32) {
+      alert("GAME OVER")
+      Game.loadMap("maps/map-01.txt")
+    }
   }
 
   move(direction) {
