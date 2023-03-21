@@ -66,6 +66,12 @@ export default class Game {
 
   }
 
+  static updateMushroom(value) {
+    const elem = document.querySelector("#mushroom-counter")
+    let count = parseInt (elem.textContent)
+    elem.textContent = count + value
+  }
+
   /**
    * Berechnet jeweils das nächste Frame für das Spiel.
    * Die Positionen der Spiel-Objekte werden neu berechnet,
