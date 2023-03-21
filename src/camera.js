@@ -69,5 +69,11 @@ export default class Camera {
     this.offset.x += this.interpolate.x
     this.offset.y += this.interpolate.y
   }
+
+  static shiftBackground(value) {
+      const canvasStyle = document.querySelector("#canvas").style
+      const bgX = parseInt(canvasStyle.backgroundPositionX) || 0
+      canvasStyle.backgroundPositionX = `${bgX + value}px`
+  }
     
 }

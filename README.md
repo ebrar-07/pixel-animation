@@ -3,7 +3,15 @@
 Dieses Projekt ist ein einfaches Spiel in Javascript. Es zeigt eine Top-Down Ansicht 
 von einem Spieler, der sich auf einer Karte bewegen kann.
 
+Das Spiel kann [hier](https://cedricgeissmann.github.io/pixel-animation) direkt getestet werden.
+
 # Changes
+
+## v1.6
+
+Es ist nun möglich mit mehreren Spielern zu spielen.
+
+- Das Eingabesystem wurde überarbeitet. Eingaben werden nun in `config.js` angegeben.
 
 ## v1.5
 

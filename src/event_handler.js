@@ -1,17 +1,41 @@
 import { calculatePenetration } from "./collision_detector.js"
 import { Player } from "./game_objects.js"
 import Game from "./game.js"
+import config from "./config.js"
 
-export default class EventHandler {
+
+export default class InputHandler {
+
+  static events = new Set()
+  static commands = []
+
   constructor() {
-    this.events = new Set()
     // Setup Eventlisteners
-    window.onkeydown = (ev) => {this.events.add(ev.code); return false}
-    window.onkeyup = (ev) => {this.events.delete(ev.code)}
+    window.onkeydown = (ev) => {InputHandler.events.add(ev.code); return false}
+    window.onkeyup = (ev) => {InputHandler.events.delete(ev.code)}
+    Object.entries(config["keys"]).forEach(([key, callback]) => {
+      new Command(key, callback)
+    })
   }
 
-  _handleEvents(gameObject) {
-    this.events.forEach((ev) => gameObject.handle(ev))
+  static handleAllEvents() {
+    InputHandler.events.forEach((ev) => {
+      InputHandler.commands.forEach(command => {
+        if (command.key === ev) {
+          command.callback()
+        }
+      })
+    })
+    
+  }
+}
+
+
+class Command {
+  constructor(key, callback) {
+    this.key = key
+    this.callback = callback
+    InputHandler.commands.push(this)
   }
 }
 
