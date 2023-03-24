@@ -1,9 +1,9 @@
-import EventHandler, {AnimationHandler, CollisionHandler, GravityHandler, HandlerManager} from "./event_handler.js"
+import {AnimationHandler, CollisionHandler, GravityHandler, HandlerManager} from "./event_handler.js"
 import { findAndRemoveFromList } from "./utils.js"
 import TileRegistry from "./tile_registry.js"
 import CollisionDetector from "./collision_detector.js"
+import Camera from "./camera.js"
 import Game from "./game.js"
-
 
 /**
  * Dies ist die Basisklasse für alle Spiel-Objekte.
@@ -192,7 +192,6 @@ export class Player extends AnimatedGameObject {
     this.col = 1
     this.speed = 3
     this.handlers = new HandlerManager([
-      new EventHandler(),
       new GravityHandler({ 
         jumpForce: -10,
         maxGravity: 5,
@@ -208,16 +207,10 @@ export class Player extends AnimatedGameObject {
 
   update() {
     super.update()
-  }
-
-  handle(ev) {
-    if (ev === "KeyW") { this.move("up") }
-    if (ev === "KeyS") { this.move("down") }
-    if (ev === "KeyA") { this.move("left") }
-    if (ev === "KeyD") { this.move("right") }
-    if (ev === "Space") { 
-      this.jump()
-    }
+    console.log(this.y)
+    if (this.y > 192 + 2*32) {
+      Game.gameOver()
+    } 
   }
 
   move(direction) {
@@ -230,9 +223,11 @@ export class Player extends AnimatedGameObject {
     } else if (direction === "left") {
       this.dx = this.dx + (-1) * this.speed
       this.row = 1
+      Camera.shiftBackground(1)
     } else if (direction === "right") {
       this.dx = this.dx + (1) * this.speed
       this.row = 2
+      Camera.shiftBackground(-1)
     }
   }
 }
