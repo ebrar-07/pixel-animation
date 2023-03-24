@@ -78,8 +78,8 @@ export class Background extends GameObject {
       collisionTags: []
     })
 
-    this.row = 0
-    this.col = 0
+    this.row = 2
+    this.col = 1
   }
 }
 
@@ -92,7 +92,7 @@ export class Stone extends GameObject {
       collisionTags: ["world"]
     })
     this.row = 0
-    this.col = 1
+    this.col = 3
   }
 }
 
@@ -158,7 +158,7 @@ export class Mushroom extends GameObject {
       collisionTags: ["pickups"]
     })
     this.row = 0
-    this.col = 2
+    this.col = 0
   }
 }
 
@@ -182,14 +182,14 @@ class AnimatedGameObject extends GameObject {
 
 export class Player extends AnimatedGameObject {
   constructor(x, y) {
-    const img = document.querySelector("#character")
+    const img = document.querySelector("#ground")
     super(x, y, {
       sheet: img,
       layer: "player",
       collisionTags: ["world", "pickups", "cave", "forest"]
     })
     this.row = 0
-    this.col = 1
+    this.col = 4
     this.speed = 3
     this.handlers = new HandlerManager([
       new GravityHandler({ 
@@ -197,7 +197,7 @@ export class Player extends AnimatedGameObject {
         maxGravity: 5,
         gravityForce: 1 }),
       new CollisionHandler(),
-      new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 3})
+      new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
     ])
   }
 
