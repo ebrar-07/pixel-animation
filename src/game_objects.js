@@ -17,7 +17,7 @@ import Game from "./game.js"
 export class GameObject {
   constructor(x, y, options = {sheet, layer: "background", collisionTags: []}) {
     this.sheet = options.sheet
-    this.tileSize = 32
+    this.tileSize = 16
     this.x = x * this.tileSize
     this.y = y * this.tileSize
     this.col = 0
