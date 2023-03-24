@@ -72,6 +72,17 @@ export default class Game {
     elem.textContent = count + value
   }
 
+  static setMushroomCounter(value) {
+    const elem = document.querySelector("#mushroom-counter")
+    elem.textContent = value
+  }
+
+  static gameOver() {
+    alert("GAME OVER")
+    Game.loadMap("maps/map-01.txt")
+    Game.setMushroomCounter(0)
+  }
+
   /**
    * Berechnet jeweils das nächste Frame für das Spiel.
    * Die Positionen der Spiel-Objekte werden neu berechnet,

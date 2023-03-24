@@ -209,9 +209,8 @@ export class Player extends AnimatedGameObject {
     super.update()
     console.log(this.y)
     if (this.y > 192 + 2*32) {
-      alert("GAME OVER")
-      Game.loadMap("maps/map-01.txt")
-    }
+      Game.gameOver()
+    } 
   }
 
   move(direction) {
