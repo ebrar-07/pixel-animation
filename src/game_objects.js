@@ -216,17 +216,21 @@ export class Player extends AnimatedGameObject {
   move(direction) {
     if (direction === "up") {
       this.dy = this.dy + (-1) * this.speed
-      this.row = 3
+      this.row = 0
+      this.col = 4.4
     } else if (direction === "down") {
       this.dy = this.dy + (1) * this.speed
       this.row = 0
+      this.col = 4.4
     } else if (direction === "left") {
       this.dx = this.dx + (-1) * this.speed
-      this.row = 1
+      this.row = 0
+      this.col = 4.4
       Camera.shiftBackground(1)
     } else if (direction === "right") {
       this.dx = this.dx + (1) * this.speed
-      this.row = 2
+      this.row = 0
+      this.col = 4.4
       Camera.shiftBackground(-1)
     }
   }
