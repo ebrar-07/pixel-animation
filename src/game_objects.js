@@ -78,8 +78,8 @@ export class Background extends GameObject {
       collisionTags: []
     })
 
-    this.row = 2
-    this.col = 1
+    this.row = 1
+    this.col = 3
   }
 }
 
