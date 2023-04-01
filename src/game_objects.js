@@ -118,7 +118,7 @@ export class Cave extends GameObject {
       collisionTags: ["cave"]
     })
     this.row = 1
-    this.col = 2
+    this.col = 0
   }
 }
 
@@ -159,6 +159,20 @@ export class Mushroom extends GameObject {
     })
     this.row = 0
     this.col = 0
+  }
+}
+
+
+export class Cloud extends GameObject {
+  constructor(x, y) {
+    const ground = document.querySelector("#ground")
+    super(x, y, {
+      sheet: ground,
+      layer: "world",
+      collisionTags: ["world"]
+    })
+    this.row = 1
+    this.col = 4
   }
 }
 
