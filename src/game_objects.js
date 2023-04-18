@@ -189,7 +189,7 @@ export class Player extends AnimatedGameObject {
       collisionTags: ["world", "pickups", "cave", "forest"]
     })
     this.row = 0
-    this.col = 4
+    this.col = 4.4
     this.speed = 3
     this.handlers = new HandlerManager([
       new GravityHandler({ 
@@ -197,7 +197,7 @@ export class Player extends AnimatedGameObject {
         maxGravity: 5,
         gravityForce: 1 }),
       new CollisionHandler(),
-      new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
+      //new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
     ])
   }
 
