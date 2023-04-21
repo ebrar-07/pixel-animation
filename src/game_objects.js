@@ -216,16 +216,18 @@ export class Player extends AnimatedGameObject {
       collisionTags: ["world", "pickups", "cave", "forest"]
     })
     this.row = 0
-    this.col = 4
+    this.col = 4.4
     this.speed = 3
     this.handlers = new HandlerManager([
-      new GravityHandler({ 
-        jumpForce: -10,
-        maxGravity: 5,
-        gravityForce: 1 }),
       new CollisionHandler(),
       new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
     ])
+    if (Game.map.mapfile === "maps/map-01.txt") {
+      this.handlers.add(new GravityHandler({ 
+        jumpForce: -10,
+        maxGravity: 5,
+        gravityForce: 1 }),)
+    }
   }
 
   jump() {

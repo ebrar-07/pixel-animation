@@ -8,6 +8,7 @@ import { Background, FallingStone, Mushroom, Player, Stone, Tree, Wall, Cave, Cl
 export default class Map {
   constructor(mapFile) {
     this._readMapFile(mapFile)
+    this.mapfile = mapFile
   }
 
   /**
