@@ -2,10 +2,10 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
-    background-color: white;
+    background-color: rgb(246, 245, 245);
 }
 
 canvas {
-    background-color: white;
+    background-color: rgb(16, 1, 1);
     height: 70vh;
 }
