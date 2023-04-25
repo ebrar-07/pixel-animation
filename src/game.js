@@ -17,6 +17,7 @@ export default class Game {
   static running = false;
   static currentFrame = 0;
 
+
   constructor() {
     this.tileSize = 16
     this.canvas = document.querySelector("#canvas")
@@ -27,7 +28,7 @@ export default class Game {
 
     new EventHandler()
 
-    Game.loadMap("maps/map-02.txt")
+    Game.loadMap("maps/map-03.txt")
 
     this.camera = new Camera(this)
 
