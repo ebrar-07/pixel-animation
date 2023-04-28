@@ -241,7 +241,7 @@ export class Player extends AnimatedGameObject {
     this.speed = 3
     this.handlers = new HandlerManager([
       new CollisionHandler(),
-      new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
+      //new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
     ])
     if (Game.map.mapfile === "maps/map-01.txt") {
       this.handlers.add(new GravityHandler({ 
