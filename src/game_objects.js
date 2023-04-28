@@ -78,8 +78,8 @@ export class Background extends GameObject {
       collisionTags: []
     })
 
-    this.row = 2
-    this.col = 1
+    this.row = 1
+    this.col = 3
   }
 }
 
@@ -118,7 +118,7 @@ export class Cave extends GameObject {
       collisionTags: ["cave"]
     })
     this.row = 1
-    this.col = 2
+    this.col = 0
   }
 }
 
@@ -162,6 +162,33 @@ export class Mushroom extends GameObject {
   }
 }
 
+
+export class Cloud extends GameObject {
+  constructor(x, y) {
+    const ground = document.querySelector("#ground")
+    super(x, y, {
+      sheet: ground,
+      layer: "world",
+      collisionTags: ["world"]
+    })
+    this.row = 1
+    this.col = 4
+  }
+}
+
+export class Snail extends GameObject {
+  constructor(x, y) {
+    const ground = document.querySelector("#ground")
+    super(x, y, {
+      sheet: ground,
+      layer: "world",
+      collisionTags: ["world"]
+    })
+    this.row = 1
+    this.col = 1
+  }
+}
+
 class AnimatedGameObject extends GameObject {
   constructor(x, y, options) {
     super(x, y, options)
@@ -192,13 +219,15 @@ export class Player extends AnimatedGameObject {
     this.col = 4.4
     this.speed = 3
     this.handlers = new HandlerManager([
-      new GravityHandler({ 
-        jumpForce: -10,
-        maxGravity: 5,
-        gravityForce: 1 }),
       new CollisionHandler(),
       //new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
     ])
+    if (Game.map.mapfile === "maps/map-01.txt") {
+      this.handlers.add(new GravityHandler({ 
+        jumpForce: -10,
+        maxGravity: 5,
+        gravityForce: 1 }),)
+    }
   }
 
   jump() {

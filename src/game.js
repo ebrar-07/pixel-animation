@@ -17,6 +17,7 @@ export default class Game {
   static running = false;
   static currentFrame = 0;
 
+
   constructor() {
     this.tileSize = 16
     this.canvas = document.querySelector("#canvas")
