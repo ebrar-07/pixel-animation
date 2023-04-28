@@ -182,12 +182,33 @@ export class Snail extends GameObject {
     super(x, y, {
       sheet: ground,
       layer: "world",
-      collisionTags: ["world"]
+      collisionTags: ["world", "snail"]
     })
     this.row = 1
     this.col = 1
-  }
+   this.leftremaining = parseInt(Math.random() * 100)+20
+   this.rightremaining = parseInt(Math.random() * 50)+20}
+   update(){
+    super.update()
+    if (this.leftremaining>0 ) {
+       this.leftremaining--
+       this.x= this.x - 1
+       if(this.leftremaining <= 0){
+        this.rightremaining =parseInt(Math.random() * 10)+500
+
 }
+}
+if (this.rightremaining > 0) {
+
+this.rightremaining--
+
+this.x= this.x + 1
+}
+}
+
+}
+  
+
 
 class AnimatedGameObject extends GameObject {
   constructor(x, y, options) {
@@ -213,7 +234,7 @@ export class Player extends AnimatedGameObject {
     super(x, y, {
       sheet: img,
       layer: "player",
-      collisionTags: ["world", "pickups", "cave", "forest"]
+      collisionTags: ["world", "pickups", "cave", "forest", "snail"]
     })
     this.row = 0
     this.col = 4.4

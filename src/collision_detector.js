@@ -15,6 +15,7 @@ export default class CollisionDetector {
         forest: [],
         pickups: [],
         cave: [],
+        snail: [],
 
     }
 
@@ -24,6 +25,7 @@ export default class CollisionDetector {
         forest: [],
         pickups: [],
         cave: [],
+        snail: [],
       }
     }
 

@@ -118,6 +118,10 @@ export class CollisionHandler {
       Game.updateMushroom(1)
     }
 
+    if (collidingObject.collisionTags.includes("snail") && gameObject instanceof Player) {
+      Game.gameOver()
+    }
+
     if (collidingObject.collisionTags.includes("cave")) {
       if (Game.map.mapfile === "maps/map-01.txt" ){
         Game.loadMap("maps/map-02.txt")
