@@ -44,6 +44,9 @@ export default class Game {
    */
   static start() {
     Game.running = true
+    setInterval(Game.countdown, 1000)
+    
+
   }
 
   /**
@@ -64,7 +67,7 @@ export default class Game {
       CollisionDetector.clear()
       Game.player = null
       Game.map = new Map(mapfile)
-
+      setInterval(Game.countdown, 1000)
   }
 
   static updateMushroom(value) {
@@ -73,6 +76,17 @@ export default class Game {
     elem.textContent = count + value
   }
 
+  static countdown() {
+    const elem = document.querySelector("#count-down")
+    let count = parseInt(elem.textContent)
+    if (count <= 0) {
+      elem.textContent = 30
+      Game.loadMap("maps/map-02.txt")
+    }else {
+        elem.textContent = count - 1
+      
+    } 
+  }
   static setMushroomCounter(value) {
     const elem = document.querySelector("#mushroom-counter")
     elem.textContent = value

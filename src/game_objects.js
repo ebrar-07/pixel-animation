@@ -239,6 +239,12 @@ export class Player extends AnimatedGameObject {
     this.row = 0
     this.col = 4.4
     this.speed = 3
+    if (Game.map.mapfile === "maps/map-01.txt") {
+      this.canmoveup = true
+      this.canmovedown= true
+      this.canmoveright = true
+      this.canmoveleft = true
+    }
     this.handlers = new HandlerManager([
       new CollisionHandler(),
       new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
@@ -260,11 +266,14 @@ export class Player extends AnimatedGameObject {
     console.log(this.y)
     if (this.y > 192 + 2*32) {
       Game.gameOver()
-    } 
+    }
+    if (Game.map.mapfile === "maps/map-03.txt") {
+      this.move("right")
+    }
   }
 
   move(direction) {
-    if (direction === "up") {
+    if (direction === "up" && this.canmoveup) {
       this.dy = this.dy + (-1) * this.speed
       this.row = 0
       this.col = 4.4
