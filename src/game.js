@@ -16,7 +16,7 @@ export default class Game {
   static player2 = null;
   static running = false;
   static currentFrame = 0;
-  static countdownID = null;
+  static countdownID = null; //countdown
 
 
   constructor() {
@@ -68,7 +68,7 @@ export default class Game {
 
       if (Game.map.mapfile ==="maps/map-02.txt") {
         Game.countdownID = setInterval(Game.countdown, 1 * 1000)
-      }
+      } //countdown
   }
 
   static updateMushroom(value) {
@@ -86,7 +86,7 @@ export default class Game {
     alert("GAME OVER")
     Game.loadMap("maps/map-01.txt")
     Game.setMushroomCounter(0)
-    clearInterval(Game.countdownID)  // stoppt countdown
+    clearInterval(Game.countdownID) // stoppt countdown
   }
 
   static countdown() {
@@ -98,7 +98,8 @@ export default class Game {
     } else {
       countdownelement.textContent = count
     }
-  }
+  } //countdown
+
 
   /**
    * Berechnet jeweils das nächste Frame für das Spiel.
