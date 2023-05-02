@@ -243,7 +243,7 @@ export class Player extends AnimatedGameObject {
       this.goRight = true
     } else {
       this.goRight = false
-    }
+    } // damit der spieler bei map 3 nur noch nach rechts gehen kann
     this.handlers = new HandlerManager([
       new CollisionHandler(),
       //new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
@@ -280,7 +280,7 @@ export class Player extends AnimatedGameObject {
       this.dy = this.dy + (1) * this.speed
       this.row = 0
       this.col = 4.4
-    } else if (direction === "left" && this.goRight === false) {
+    } else if (direction === "left" && this.goRight === false) { //damit der spieler nicht mehr nach links kann
       this.dx = this.dx + (-1) * this.speed
       this.row = 0
       this.col = 4.4
