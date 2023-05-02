@@ -16,6 +16,7 @@ export default class Game {
   static player2 = null;
   static running = false;
   static currentFrame = 0;
+  static countdownID = null;
 
 
   constructor() {
@@ -28,7 +29,7 @@ export default class Game {
 
     new EventHandler()
 
-    Game.loadMap("maps/map-01.txt")
+    Game.loadMap("maps/map-02.txt")
 
     this.camera = new Camera(this)
 
@@ -65,6 +66,9 @@ export default class Game {
       Game.player = null
       Game.map = new Map(mapfile)
 
+      if (Game.map.mapfile ==="maps/map-02.txt") {
+        Game.countdownID = setInterval(Game.countdown, 1 * 1000)
+      }
   }
 
   static updateMushroom(value) {
@@ -82,6 +86,18 @@ export default class Game {
     alert("GAME OVER")
     Game.loadMap("maps/map-01.txt")
     Game.setMushroomCounter(0)
+    clearInterval(Game.countdownID)  // stoppt countdown
+  }
+
+  static countdown() {
+    const countdownelement = document.querySelector("#countdown")
+    let count = parseInt(countdownelement.textContent)
+    count--
+    if (count < 0) {
+      Game.gameOver()
+    } else {
+      countdownelement.textContent = count
+    }
   }
 
   /**
