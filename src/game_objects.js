@@ -239,6 +239,11 @@ export class Player extends AnimatedGameObject {
     this.row = 0
     this.col = 4.4
     this.speed = 3
+    if ( Game.map.mapfile === "maps/map-03.txt") {
+      this.goRight = true
+    } else {
+      this.goRight = false
+    }
     this.handlers = new HandlerManager([
       new CollisionHandler(),
       //new AnimationHandler({ framesPerAnimation: 15, numberOfFrames: 1})
@@ -257,10 +262,13 @@ export class Player extends AnimatedGameObject {
 
   update() {
     super.update()
+    if (this.goRight === true) {
+      this.move("right")
+    }
     console.log(this.y)
     if (this.y > 192 + 2*32) {
       Game.gameOver()
-    } 
+    }
   }
 
   move(direction) {
@@ -272,7 +280,7 @@ export class Player extends AnimatedGameObject {
       this.dy = this.dy + (1) * this.speed
       this.row = 0
       this.col = 4.4
-    } else if (direction === "left") {
+    } else if (direction === "left" && this.goRight === false) {
       this.dx = this.dx + (-1) * this.speed
       this.row = 0
       this.col = 4.4
