@@ -162,6 +162,35 @@ export class Mushroom extends GameObject {
   }
 }
 
+export class Rose extends GameObject {
+  constructor(x, y) {
+    const ground = document.querySelector("#ground")
+    super(x, y, {
+      sheet: ground,
+      layer: "item",
+      collisionTags: ["pickups"]
+    })
+    this.row = 0
+    this.col = 1
+  }
+}
+// neu: pushen und weisse rosen 
+
+export class Flowers extends GameObject {
+  constructor(x, y) {
+    const ground = document.querySelector("#ground")
+    super(x, y, {
+      sheet: ground,
+      layer: "item",
+      collisionTags: ["pickups"]
+    })
+    this.row = 0
+    this.col = 2
+  }
+}
+
+// neu: pushen und rote rosen
+
 
 export class Cloud extends GameObject {
   constructor(x, y) {
