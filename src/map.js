@@ -10,7 +10,7 @@ export default class Map {
     this._readMapFile(mapFile)
     this.mapfile = mapFile
     if (this.mapfile === "maps/map-02.txt") {
-      document.querySelector("#untertitel").textContent = "Sammeln Sie alle Blumen ein, bevor der Timer abläuft!"
+      document.querySelector("#untertitel").textContent = "Sammle auf dem Weg zur nächsten Höhle möglichst viele Tulpen ein, bevor der Timer abläuft!"
     }
   }
 

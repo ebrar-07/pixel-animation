@@ -176,9 +176,6 @@ export class Rose extends GameObject {
 }
   
   
-  
-  
-  
 export class Flowers extends GameObject {
   constructor(x, y) {
     const ground = document.querySelector("#ground")
