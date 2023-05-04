@@ -217,7 +217,7 @@ export class Snail extends GameObject {
     this.row = 1
     this.col = 1
    this.leftremaining = parseInt(Math.random() * 50)+20
-   this.rightremaining = parseInt(Math.random() * 700)+10}
+   this.rightremaining = parseInt(Math.random() * 50)+10}
    update(){
     super.update()
     if (this.leftremaining>0 ) {
