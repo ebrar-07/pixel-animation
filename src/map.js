@@ -1,5 +1,5 @@
 import Game from "./game.js"
-import { Background, FallingStone, Mushroom, Player, Stone, Tree, Wall, Cave, Cloud, Snail } from "./game_objects.js"
+import { Background, FallingStone, Mushroom, Player, Stone, Tree, Wall, Cave, Cloud, Snail, Rose, Flowers } from "./game_objects.js"
 
 /**
  * Diese Klasse liest eine Kartendatei und erstellt die Spiel-Objekte
@@ -26,6 +26,8 @@ export default class Map {
     if ( tileType === "S" ) { new FallingStone(x, y) }
     if ( tileType === "t" ) { new Tree(x, y) }
     if ( tileType === "p" ) { new Mushroom(x, y) }
+    if ( tileType === "r" ) { new Rose(x, y) }
+    if ( tileType === "g" ) { new Flowers(x, y) }
     if ( tileType === "a" ) { new Snail(x, y) }
     if ( tileType === "c" ) { new Cloud(x, y) }
     if ( tileType === "w" ) { new Wall(x, y) }
@@ -34,6 +36,7 @@ export default class Map {
     if ( tileType === "Q" ) { Game.player2 = new Player(x, y)}
   }
 
+  
   /**
    * Liest die Karte aus der Datei und ruft die Erstellung der Spiel-Objekte auf.
    */

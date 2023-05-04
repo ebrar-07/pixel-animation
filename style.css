@@ -6,6 +6,6 @@ body {
 }
 
 canvas {
-    background-color: rgb(16, 1, 1);
+    background-color: rgb(255, 255, 255);
     height: 70vh;
 }
