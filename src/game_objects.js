@@ -105,7 +105,7 @@ export class Wall extends GameObject {
       collisionTags: ["world"]
     })
     this.row = 1
-    this.col = 3
+    this.col = 2
   }
 }
 
@@ -162,6 +162,36 @@ export class Mushroom extends GameObject {
   }
 }
 
+export class Rose extends GameObject {
+  constructor(x, y) {
+    const ground = document.querySelector("#ground")
+    super(x, y, {
+      sheet: ground,
+      layer: "item",
+      collisionTags: ["pickups"]
+    })
+    this.row = 0
+    this.col = 1
+  }
+}
+  
+  
+  
+  
+  
+export class Flowers extends GameObject {
+  constructor(x, y) {
+    const ground = document.querySelector("#ground")
+    super(x, y, {
+      sheet: ground,
+      layer: "item",
+      collisionTags: ["pickups"]
+    })
+    this.row = 0
+    this.col = 2
+  }
+}
+
 
 export class Cloud extends GameObject {
   constructor(x, y) {
@@ -186,8 +216,8 @@ export class Snail extends GameObject {
     })
     this.row = 1
     this.col = 1
-   this.leftremaining = parseInt(Math.random() * 100)+20
-   this.rightremaining = parseInt(Math.random() * 50)+20}
+   this.leftremaining = parseInt(Math.random() * 50)+20
+   this.rightremaining = parseInt(Math.random() * 700)+10}
    update(){
     super.update()
     if (this.leftremaining>0 ) {
@@ -195,17 +225,13 @@ export class Snail extends GameObject {
        this.x= this.x - 1
        if(this.leftremaining <= 0){
         this.rightremaining =parseInt(Math.random() * 10)+500
-
-}
-}
-if (this.rightremaining > 0) {
-
-this.rightremaining--
-
-this.x= this.x + 1
-}
-}
-
+      }
+    }
+    if (this.rightremaining > 0) {
+      this.rightremaining--
+      this.x= this.x + 1
+    }
+  }
 }
   
 

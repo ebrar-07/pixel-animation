@@ -89,6 +89,10 @@ export default class Game {
     clearInterval(Game.countdownID) // stoppt countdown
   }
 
+  static End() {
+    alert("Herzlichen Glückwunsch! Du hast das Spiel abgeschlossen!!")
+  }
+
   static countdown() {
     const countdownelement = document.querySelector("#countdown")
     let count = parseInt(countdownelement.textContent)

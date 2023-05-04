@@ -122,13 +122,17 @@ export class CollisionHandler {
       Game.gameOver()
     }
 
+    if (collidingObject.collisionTags.includes("cave") && gameObject instanceof Player){
+      Game.End()
+    }
+
     if (collidingObject.collisionTags.includes("cave")) {
       if (Game.map.mapfile === "maps/map-01.txt" ){
         Game.loadMap("maps/map-02.txt")
       } else if (Game.map.mapfile === "maps/map-02.txt" ){
         clearInterval(Game.countdownID) // countdown reset bei map 3
         Game.loadMap("maps/map-03.txt")
-      } 
+      }
     }
   }
 }
