@@ -1,0 +1,80 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:white;
+    text-align: center;
+    font-size: 20px;
+}
+
+h1 {
+    color:yellow;
+    text-shadow: 0 0 2px black;
+    font-size: 50px;
+}
+
+
+h2 {
+    background-color: #ff1493;
+    font-size: 35px;
+}
+
+h3, h4, h5{
+    background-color: aqua;
+    color: black;
+    font-size: 35px;
+}
+
+h6 {
+    font-size: 15px;
+    text-align: right;
+}
+
+h7 {
+    font-size: 20px;
+    color:red;
+}
+
+
+.box{
+    border-color: black;
+    height: 120px;
+    background-color:aliceblue;
+    transition: 2s ease-in-out;
+}
+
+.box2{
+    border: 10px;
+    border-style: solid;
+    border-color:white;
+    height:95px;
+    background-color: aliceblue;
+    transition: 0.1s ease-in-out;
+}
+
+.box3{
+    height:100px;
+    color: purple;
+    font-size: 20px;
+    background-color: aliceblue;
+    transition: 2s ease-in-out;
+}
+
+.box4{
+    height:140px;
+    background-color: aliceblue;
+    transition: 2s ease-in-out;
+}
+
+.padding:hover{
+    padding:150px;
+}
+
+.margin:hover{
+    margin: 100px;
+}
+
+.border:hover{
+    border-color: red;
+}
